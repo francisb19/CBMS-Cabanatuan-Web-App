@@ -14,6 +14,7 @@ interface InputDropdownProps {
   lightText?: boolean;
   options: Choice[];
   defaultOptions?: Choice[];
+  OnChangeFunction: (params: string) => void;
 }
 
 const InputDropdown: React.FC<InputDropdownProps> = ({
@@ -25,6 +26,7 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
   lightText,
   options,
   defaultOptions,
+  OnChangeFunction,
 }) => {
   return (
     <div className="mb-4">
@@ -37,6 +39,7 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
         {placeholder}
       </label>
       <select
+        onChange={(e) => OnChangeFunction(e.target.value)}
         name={labelFor}
         id={labelFor}
         disabled={disabled}
@@ -49,12 +52,12 @@ const InputDropdown: React.FC<InputDropdownProps> = ({
           `}
       >
         {defaultOptions?.map((opt) => (
-          <option key={opt.id} className="font-semibold">
+          <option key={opt.id} value={opt.id} className="font-semibold">
             {opt.choice}
           </option>
         ))}
         {options.map((opt) => (
-          <option key={opt.id} className="font-semibold">
+          <option key={opt.id} value={opt.id} className="font-semibold">
             {opt.choice}
           </option>
         ))}

@@ -28,7 +28,7 @@ const ModalAlert: React.FC<ModalAlertProps> = ({
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-neutral-950 bg-opacity-25 backdrop-blur-sm flex justify-center items-center transition-all">
+    <div className="fixed inset-0 bg-neutral-950 bg-opacity-25 backdrop-blur-sm flex justify-center items-center transition-all text-neutral-950">
       <div className="bg-neutral-50 w-[280px] h-[330px] flex flex-col rounded px-8">
         <div className="mt-12 mb-4 h-[50px] flex justify-center items-center rounded">
           {alertType === "success" && (
